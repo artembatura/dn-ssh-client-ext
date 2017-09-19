@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group 'org.develnext'
+version '0.9' + java.lang.Boolean.getBoolean("release") ? '' : '-SNAPSHOT';
+
+sourceCompatibility = 8
+
+configurations {
+    provided
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    provided "org.develnext.jphp:jphp-runtime:${rootProject.ext.jphpVersion}"
+    compile group: 'org.artemir.ssh-client', name: 'ssh-client', version: '1.0.0-SNAPSHOT'
+}

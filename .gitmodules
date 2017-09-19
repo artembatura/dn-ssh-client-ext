@@ -1,0 +1,3 @@
+[submodule "3rd-party/ssh-client"]
+	path = 3rd-party/ssh-client
+	url = https://github.com/artemirq/ssh-client

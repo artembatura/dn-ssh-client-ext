@@ -23,7 +23,7 @@ public class WrapCommander extends BaseWrapper<Commander> {
         void end();
     }
 
-    @Signature
+    @Signature(@Arg(value = "toCharset", optional = @Optional("null")))
     byte[] getLastOutput(Memory toCharset) throws UnsupportedEncodingException {
         if (toCharset == Memory.NULL) {
             return getWrappedObject().getLastOutput(null);
@@ -34,7 +34,7 @@ public class WrapCommander extends BaseWrapper<Commander> {
         return getWrappedObject().getLastOutput(toCharset.toString());
     }
 
-    @Signature
+    @Signature(@Arg(value = "toCharset", optional = @Optional("null")))
     byte[] getLastError(Memory toCharset) throws UnsupportedEncodingException {
         if (toCharset == Memory.NULL) {
             return getWrappedObject().getLastError(null);

@@ -5,7 +5,7 @@ use ide\bundle\AbstractBundle;
 use ide\bundle\AbstractJarBundle;
 use ide\project\Project;
 
-class SshBundle extends AbstractJarBundle
+class SshClientBundle extends AbstractJarBundle
 {
     public function onAdd(Project $project, AbstractBundle $owner = null)
     {

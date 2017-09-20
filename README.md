@@ -19,8 +19,11 @@ $connection = SSHClient::connectWithPassword('192.168.0.102', 22, 'pi', 'raspber
 // Инициализация подключения к серверу
 $commander = $connection->execute();
 
-// Исполняем команду
+// Исполнение команды
 $commander->exec('tree', "UTF-8");
+
+// Исполнение команды с sudo правами
+$commander->execWithSudo('shutdown now', 'password', "UTF-8"); // исходная кодировка
 
 // Обязательно заканчиваем управление по SSH
 $commander->end();

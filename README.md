@@ -40,7 +40,7 @@ $stdErr = $commander->getLastOutput();
 1. Откройте консоль
 2. Переместитесь в `dn-ssh-client-ext/3rd-party/ssh-client`
 3. Используйте команду `"../../gradlew" install`
-4. Переместитесь в `dn-ssh-client-ext`
+4. Переместитесь в корень, `dn-ssh-client-ext`
 5. Используйте команду `gradlew build`
-6. В папке `dn-ssh-client-bundle/build` вы найдете файл бандла с расширением `.bundle`
+6. В папке `dn-ssh-client-ext/dn-ssh-client-bundle/build` вы найдете файл бандла с расширением `.bundle`
 

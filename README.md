@@ -14,16 +14,16 @@
 ```php 
 use php\ssh\client\SSHClient; 
 
-$connection = SSHClient::connectWithPassword('192.168.0.102', 22, 'pi', 'raspberry');
+$connection = SSHClient::connectWithPassword('host', 22, 'user', 'password');
 
 // Инициализация подключения к серверу
 $commander = $connection->execute();
 
-// Исполнение команды
+// Исполнение команды с указанием исходной кодировки
 $commander->exec('tree', "UTF-8");
 
 // Исполнение команды с sudo правами
-$commander->execWithSudo('shutdown now', 'password', "UTF-8"); // исходная кодировка
+$commander->execWithSudo('command', 'password', "UTF-8"); // исходная кодировка
 
 // Обязательно заканчиваем управление по SSH
 $commander->end();
@@ -32,10 +32,10 @@ $commander->end();
 $connection->close();
 
 // Получаем вывод с StdErr последней выполненной операции
-$stdOut = $commander->getLastError();
+$stdErr = $commander->getLastError();
 
 // Получаем вывод с StdOut последней выполненной операции
-$stdErr = $commander->getLastOutput();
+$stdOut = $commander->getLastOutput();
 ```
 
 ### Сборка

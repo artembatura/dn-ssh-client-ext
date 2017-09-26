@@ -1,7 +1,19 @@
+*.class
+
+# Package Files #
+*.war
+*.ear
+*.iml
+*.ipr
+*.iws
+/classes/
+/build/
+/lib/
 .idea/
+settings.xml
 
+/.gradle/
 build/
-.gradle/
 
-*.log
-*.tmp
+gradle.properties
+secret.asc

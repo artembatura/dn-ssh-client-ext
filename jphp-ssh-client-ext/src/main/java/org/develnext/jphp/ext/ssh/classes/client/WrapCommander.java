@@ -23,7 +23,7 @@ public class WrapCommander extends BaseWrapper<Commander> {
         void end();
     }
 
-    @Signature(@Arg(value = "toCharset", optional = @Optional("null")))
+    @Signature
     byte[] getLastOutput(Memory toCharset) throws UnsupportedEncodingException {
         if (toCharset == Memory.NULL) {
             return getWrappedObject().getLastOutput(null);
@@ -34,7 +34,13 @@ public class WrapCommander extends BaseWrapper<Commander> {
         return getWrappedObject().getLastOutput(toCharset.toString());
     }
 
-    @Signature(@Arg(value = "toCharset", optional = @Optional("null")))
+    @Signature
+    byte[] getLastOutput() throws UnsupportedEncodingException {
+        return this.getLastOutput(Memory.NULL);
+    }
+
+
+    @Signature
     byte[] getLastError(Memory toCharset) throws UnsupportedEncodingException {
         if (toCharset == Memory.NULL) {
             return getWrappedObject().getLastError(null);
@@ -43,6 +49,11 @@ public class WrapCommander extends BaseWrapper<Commander> {
             throw new UnsupportedEncodingException("Invalid type argument $toCharset. Need: String");
         }
         return getWrappedObject().getLastError(toCharset.toString());
+    }
+
+    @Signature
+    byte[] getLastError() throws UnsupportedEncodingException {
+        return this.getLastError(Memory.NULL);
     }
 
     public WrapCommander(Environment env, Commander object) {

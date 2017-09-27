@@ -10,7 +10,6 @@
 
 ### Пример
 
-#### SSHClient
 ```php 
 use php\ssh\client\SSHClient; 
 

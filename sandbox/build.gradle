@@ -12,5 +12,5 @@ dependencies {
     compile project(':jphp-ssh-client-ext')
     compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
 
-    compile "org.develnext.jphp:jphp-core:${rootProject.ext.jphpVersion}"
+    compile "org.develnext:jphp-core:${rootProject.ext.jphpVersion}"
 }

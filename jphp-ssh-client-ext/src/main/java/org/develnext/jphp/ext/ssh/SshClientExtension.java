@@ -19,7 +19,6 @@ public class SshClientExtension extends Extension {
         return Status.EXPERIMENTAL;
     }
 
-    @Override
     public String[] getPackageNames() {
         return new String[] { "ssh", "ssh\\client" };
     }

@@ -15,34 +15,37 @@ use php\ssh\client\SSHClient;
 
 $connection = SSHClient::connectWithPassword('host', 22, 'user', 'password');
 
-// Инициализация подключения к серверу
+// инициализация подключения к серверу
 $commander = $connection->execute();
 
-// Исполнение команды с указанием исходной кодировки
+// исполнение команды с указанием исходной кодировки
 $commander->exec('tree', "UTF-8");
 
-// Исполнение команды с sudo правами
+// исполнение команды с sudo правами
 $commander->execWithSudo('command', 'password', "UTF-8"); // исходная кодировка
 
-// Обязательно заканчиваем управление по SSH
+// заканчиваем управление по SSH
 $commander->end();
 
-// Обязательно закрываем соединение по SSH
+// закрываем соединение по SSH
 $connection->close();
 
-// Получаем вывод с StdErr последней выполненной операции
+// получаем вывод с StdErr последней выполненной операции
 $stdErr = $commander->getLastError();
 
-// Получаем вывод с StdOut последней выполненной операции
+// получаем вывод с StdOut последней выполненной операции
 $stdOut = $commander->getLastOutput();
 ```
 
 ### Сборка
 
-1. Откройте консоль
-2. Переместитесь в `dn-ssh-client-ext/3rd-party/ssh-client`
-3. Используйте команду `"../../gradlew" install`
-4. Переместитесь в корень, `dn-ssh-client-ext`
-5. Используйте команду `gradlew build`
-6. В папке `dn-ssh-client-ext/dn-ssh-client-bundle/build` вы найдете файл бандла с расширением `.bundle`
+1. `git clone https://github.com/artemirq/dn-ssh-client-ext`
+2. `cd dn-ssh-client-ext`
+3. `git submodule init`
+4. `git submodule update`
+5. `cd 3rd-party/ssh-client`
+6. `"../../gradlew" install`
+7. `cd ../..`
+8. `gradlew build`
 
+По пути `dn-ssh-client-bundle/build` вы найдете файл бандла с расширением `bundle`

@@ -43,6 +43,9 @@ $stdOut = $commander->getLastOutput();
 2. `cd dn-ssh-client-ext`
 3. `git submodule init`
 4. `git submodule update`
-5. `gradlew build`
+5. `cd 3rd-party/ssh-client`
+6. `"../../gradlew" install`
+7. `cd ../..`
+8. `gradlew bundle`
 
 По пути `dn-ssh-client-bundle/build` вы найдете файл бандла
